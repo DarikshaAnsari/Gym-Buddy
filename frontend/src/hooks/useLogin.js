@@ -11,8 +11,7 @@ export const useLogin=()=>{
         
         const response =await fetch('https://work-outizer.onrender.com/api/user/login',{
             method:'POST',
-            headers:{'Content-Type':'application/json', 
-            'Access-Control-Allow-Origin': '*' },
+            headers:{'Content-Type':'application/json'},
             body:JSON.stringify({email,password})
         })
         const json=await response.json()
