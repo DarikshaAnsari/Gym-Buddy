@@ -24,10 +24,13 @@ const getWorkout=async(req,res)=>{
 }
 //create new workouts
 const createWorkout=async(req,res)=>{
-    const {title,load}=req.body
+    const {title,load,reps}=req.body
     let emptyFields=[]
     if(!title){
         emptyFields.push('title')
+    }
+    if(!reps){
+        emptyFields.push('reps')
     }
     if(!load){
         emptyFields.push('load')
@@ -37,7 +40,7 @@ const createWorkout=async(req,res)=>{
     }
     try {
         const user_id=req.user._id;
-        const workout= await Workout.create({title,load,user_id})
+        const workout= await Workout.create({title,load,reps,user_id})
         res.status(200).json(workout)
     } catch (error) {
         res.status(400).json({error:error.message})
