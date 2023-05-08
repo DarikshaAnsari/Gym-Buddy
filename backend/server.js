@@ -6,11 +6,16 @@ const app=express()
 app.get('/',(req,res)=>{
     res.json({msg:"welcome to the app"})
 })
-app.use(function (req, res, next) {
+// disable CORS
+app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "*");
+    if (req.method === "OPTIONS") {
+      res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+      return res.status(200).json({});
+    }
     next();
- })
+  });
 app.use(express.json());
 app.use('/api/workouts',require("./routes/workout"));
 app.use('/api/user',require("./routes/user"));
