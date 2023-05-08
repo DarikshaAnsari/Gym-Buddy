@@ -8,7 +8,7 @@ export default function Home() {
    const {user}=useAuthContext();
   useEffect(()=>{
       const fetchWorkouts=async()=>{
-         const response=await fetch('https://workoutizer.onrender.com/api/workouts',{
+         const response=await fetch('https://work-outizer.onrender.com/api/workouts',{
             headers:{
                'Authorization':`Bearer ${user.token}`
             }

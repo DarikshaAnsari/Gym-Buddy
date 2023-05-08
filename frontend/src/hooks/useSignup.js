@@ -9,7 +9,7 @@ export const useSignup=()=>{
         setIsloading(true)
         setError(null)
         
-        const response =await fetch('https://workoutizer.onrender.com/api/user/signup',{
+        const response =await fetch('https://work-outizer.onrender.com/api/user/signup',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({email,password})

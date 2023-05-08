@@ -8,7 +8,7 @@ export default function WorkoutDetails({workout}) {
     return
   }
   const handleClick=async()=>{
-      const response= await fetch("https://workoutizer.onrender.com/api/workouts/"+workout._id,{
+      const response= await fetch("https://work-outizer.onrender.com/api/workouts/"+workout._id,{
         method:'DELETE',
         headers:{
         'Authorization':`Bearer ${user.token}`

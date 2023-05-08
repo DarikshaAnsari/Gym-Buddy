@@ -16,7 +16,7 @@ export default function WorkoutForm() {
             return
         }
         const workout={title,load,reps};
-        const response=await fetch("https://workoutizer.onrender.com/api/workouts",{
+        const response=await fetch("https://work-outizer.onrender.com/api/workouts",{
             method:'POST',
             body:JSON.stringify(workout),
             headers:{
