@@ -6,6 +6,11 @@ const app=express()
 app.get('/',(req,res)=>{
     res.json({msg:"welcome to the app"})
 })
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+ })
 app.use(express.json());
 app.use('/api/workouts',require("./routes/workout"));
 app.use('/api/user',require("./routes/user"));
